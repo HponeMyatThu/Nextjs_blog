@@ -19,8 +19,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const MealDetailPage = ({ params }) => {
-  const meal = getMeal(params.mealSlug);
+const MealDetailPage = async ({ params }) => {
+  const meal = await getMeal(params.mealSlug);
+  console.log("🚀 ~ MealDetailPage ~ meal:", meal)
 
   if (!meal) {
     notFound();
